@@ -51,7 +51,7 @@ class _ImageToTextScreenState extends State<ImageToTextScreen> {
   final TextEditingController _codeController = TextEditingController();
 
   final gemini = GeminiVisionService(
-      apiKey: "AIzaSyA9DJV8r11A2MgXWgrxgFpZRQSZFByCOuY");
+      apiKey: "");
 
   Future<void> _pickZip() async {
     final result = await FilePicker.platform
