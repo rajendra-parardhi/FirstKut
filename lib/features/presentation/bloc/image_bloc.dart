@@ -12,7 +12,7 @@ class ImageToTextBloc extends ChangeNotifier {
   final TextEditingController controller = TextEditingController();
 
   final gemini = GeminiVisionService(
-    apiKey: "AIzaSyDQieDmGQfi8nwcTpHX_mPUwge0kJxASOE", // 🔴 replace
+    apiKey: "", // 🔴 replace
   );
 
   void selectLanguage(String value) {
