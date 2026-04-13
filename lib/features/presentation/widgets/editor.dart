@@ -21,17 +21,16 @@ class EditorWidget extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  // decoration: BoxDecoration(
-                  //   color: const Color(0xffF3F4F8),
-                  //   borderRadius: BorderRadius.circular(10),
-                  // ),
-                  decoration: BoxDecoration(
+
+                 decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColors.deepPurple.withOpacity(0.3)),
+                    border: Border.all(
+                      color: AppColors.border, // ✅ FIX (no purple)
+                    ),
                     boxShadow: const [
                       BoxShadow(
-                        color: Colors.black12,
+                        color: AppColors.shadowLight, // ✅ FIX
                         blurRadius: 6,
                         offset: Offset(0, 2),
                       )
@@ -41,7 +40,8 @@ class EditorWidget extends StatelessWidget {
                     value: state.selectedIndex,
                     isExpanded: true,
                     underline: const SizedBox(),
-                    icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.deepPurple),
+                    icon: const Icon(Icons.keyboard_arrow_down,
+                        color: AppColors.textPrimary),
                     items: List.generate(state.imageFiles.length, (index) {
                       final name = state.imageFiles[index]
                           .fileName
@@ -70,13 +70,15 @@ class EditorWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 18),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      // colors: [Color(0xff5B2EFF), Color(0xff8F6CFF)],
-                      colors: [AppColors.gradientStart, AppColors.gradientEnd],
+                        colors: [
+                          AppColors.buttonPrimary,
+                          AppColors.primaryLight
+                        ],
                     ),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: const [
                       BoxShadow(
-                        color: Colors.black26,
+                        color: AppColors.shadowDark, // ✅ FIX
                         blurRadius: 6,
                         offset: Offset(0, 2),
                       )
@@ -84,12 +86,13 @@ class EditorWidget extends StatelessWidget {
                   ),
                   child: Row(
                     children: const [
-                      Icon(Icons.download, color: AppColors.white),
+                      Icon(Icons.download,
+                          color: AppColors.textWhite),
                       SizedBox(width: 8),
                       Text(
                         "Download",
                         style: TextStyle(
-                          color: AppColors.white,
+                          color: AppColors.textWhite,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -103,15 +106,18 @@ class EditorWidget extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: const Color(0xff1E1E1E),
+                color: AppColors.editorBg, // ✅ FIX (use AppColors)
                 borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: AppColors.borderDark, // ✅ subtle border
+                ),
               ),
               child: TextField(
                 controller: bloc.controller,
                 expands: true,
                 maxLines: null,
                 style: const TextStyle(
-                    color: AppColors.white, fontFamily: 'monospace'),
+                    color: AppColors.textWhite, fontFamily: 'monospace'),
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(12),
