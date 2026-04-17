@@ -112,7 +112,9 @@ class EditorWidget extends StatelessWidget {
                   color: AppColors.borderDark, // ✅ subtle border
                 ),
               ),
-              child: TextField(
+              child:
+
+              TextField(
                 controller: bloc.controller,
                 expands: true,
                 maxLines: null,
