@@ -17,7 +17,7 @@ class ImageToTextBloc extends ChangeNotifier {
   Function()? onApiError;
 
   final gemini = GeminiVisionService(
-    apiKey: "",
+    apiKey: "AIzaSyCA0kgxcPDq_I34nA77eFxSb25G9uUzM4k",
   );
 
   // ---------------- LANGUAGE SELECT ----------------
